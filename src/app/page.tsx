@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <>
       <main className={styles.main}>
         <Image
           className={styles.img}
@@ -26,29 +26,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://www.linkedin.com/in/diego-andres-centeno/"
-          rel="noopener noreferrer"
-        >
-          <Image
-            className={styles.socialLogo}
-            src="/linked-in.svg"
-            alt="LinkedIn logo"
-            width={30}
-            height={30}
-          />
-        </a>
-        <a href="https://github.com/Centeno448/" rel="noopener noreferrer">
-          <Image
-            className={styles.socialLogo}
-            src="/github-mark.svg"
-            alt="Github logo"
-            width={30}
-            height={30}
-          />
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }
