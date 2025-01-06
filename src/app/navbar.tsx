@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function NavBar() {
   return (
     <div className={styles.navbar}>
-      <p>CentenoDev</p>
+      <Link href="/">CentenoDev</Link>
 
       <ul className={styles.navLink}>
         <li>
@@ -14,6 +14,7 @@ export default function NavBar() {
         <li>
           <a
             href="https://www.linkedin.com/in/diego-andres-centeno/"
+            target="_blank"
             rel="noopener noreferrer"
           >
             <Image
@@ -26,7 +27,11 @@ export default function NavBar() {
           </a>
         </li>
         <li>
-          <a href="https://github.com/Centeno448/" rel="noopener noreferrer">
+          <a
+            href="https://github.com/Centeno448/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image
               className={styles.socialLogo}
               src="/github-mark.svg"
