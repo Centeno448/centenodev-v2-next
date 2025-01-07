@@ -4,9 +4,7 @@ import Link from "next/link";
 import { fetchCMSContent } from "./utils";
 
 export default async function Home() {
-  const data = await fetchCMSContent(
-    `${process.env.CMS_BASE_URL}/api/homepage`
-  );
+  const data = await fetchCMSContent("api/homepage");
   const homepage = await data.json();
 
   return (

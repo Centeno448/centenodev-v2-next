@@ -1,20 +1,15 @@
-import Image from "next/image";
+import { fetchCMSContent } from "../utils";
+import { ListProject } from "../types";
 
-export default function Projects() {
+export default async function Projects() {
+  const data = await fetchCMSContent("api/projects");
+  const projects = await data.json();
+
   return (
     <>
-      <main>
-        <Image
-          src="/img/me.jpg"
-          alt="Photo of Diego Centeno"
-          width={400}
-          height={400}
-          priority
-        />
-        <div>
-          <p>I am a new page</p>
-        </div>
-      </main>
+      {projects.data.map((project: ListProject) => (
+        <p key={project.id}>{project.name}</p>
+      ))}
     </>
   );
 }
