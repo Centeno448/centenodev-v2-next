@@ -1,8 +1,14 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
 import Link from "next/link";
+import { fetchCMSContent } from "./utils";
 
-export default function Home() {
+export default async function Home() {
+  const data = await fetchCMSContent(
+    `${process.env.CMS_BASE_URL}/api/homepage`
+  );
+  const homepage = await data.json();
+
   return (
     <>
       <main className={styles.main}>
@@ -15,13 +21,10 @@ export default function Home() {
           priority
         />
         <div className={styles.intro}>
-          <p>
-            Hello there! I&apos;m Diego Centeno, a fullstack software developer
-            interested in game development and multiplayer server architecture.
-          </p>
+          <p>{homepage.data.greeting}</p>
           <div className={styles.ctas}>
             <Link className={styles.primary} href="/projects">
-              Check out my projects
+              {homepage.data.cta}
             </Link>
           </div>
         </div>
