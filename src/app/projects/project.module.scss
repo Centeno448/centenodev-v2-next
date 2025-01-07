@@ -6,18 +6,19 @@
   border-radius: 12px;
   padding: 20px;
   color: var(--background);
-  min-width: 400px;
-  max-width: 400px;
+  min-width: 250px;
+  max-width: 250px;
   min-height: 150px;
   max-height: 150px;
 
   .name {
     font-weight: 800;
-    font-size: 32px;
+    font-size: 24px;
   }
 
   .summary {
     font-weight: 500;
+    font-size: 18px;
   }
 }
 
