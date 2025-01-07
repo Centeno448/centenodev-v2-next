@@ -4,7 +4,7 @@ import Project from "./project";
 import styles from "./page.module.scss";
 
 export default async function Projects() {
-  const data = await fetchCMSContent("api/projects");
+  const data = await fetchCMSContent("api/projects?sort=id");
   const projects = await data.json();
 
   return (

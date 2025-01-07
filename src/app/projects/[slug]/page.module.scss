@@ -1,0 +1,34 @@
+.projectDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--foreground);
+  min-width: 500px;
+  max-width: 500px;
+
+  ul {
+    margin-left: 25px;
+  }
+
+  .name {
+    text-align: center;
+    font-weight: 700;
+    font-size: 32px;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  .sectionContent {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .projectDetails {
+    min-width: 300px;
+    max-width: 300px;
+  }
+}
