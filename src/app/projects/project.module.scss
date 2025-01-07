@@ -1,0 +1,37 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: var(--foreground);
+  border-radius: 12px;
+  padding: 20px;
+  color: var(--background);
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 150px;
+  max-height: 150px;
+
+  .name {
+    font-weight: 800;
+    font-size: 32px;
+  }
+
+  .summary {
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 400px) {
+  .card {
+    min-width: 200px;
+    max-width: 200px;
+
+    .name {
+      font-size: 20px;
+    }
+
+    .summary {
+      font-size: 12px;
+    }
+  }
+}

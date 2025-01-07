@@ -1,6 +1,7 @@
 export type ListProject = {
-    id: number,
-    slug: string,
-    name: string,
-    documentId: string,
-}
+    id: number;
+    slug: string;
+    name: string;
+    documentId: string;
+    summary: string;
+};

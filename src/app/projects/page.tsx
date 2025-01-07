@@ -1,5 +1,6 @@
 import { fetchCMSContent } from "../utils";
 import { ListProject } from "../types";
+import Project from "./project";
 
 export default async function Projects() {
   const data = await fetchCMSContent("api/projects");
@@ -8,7 +9,7 @@ export default async function Projects() {
   return (
     <>
       {projects.data.map((project: ListProject) => (
-        <p key={project.id}>{project.name}</p>
+        <Project key={project.documentId} {...project} />
       ))}
     </>
   );
