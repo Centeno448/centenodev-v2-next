@@ -6,3 +6,15 @@
   padding: 80px;
   font-family: var(--font-geist-sans);
 }
+
+@media (max-width: 600px) {
+  .page {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 320px) {
+  .page {
+    padding: 8px;
+  }
+}

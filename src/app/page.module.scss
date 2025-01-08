@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 32px;
 }
@@ -58,25 +59,25 @@
 }
 
 @media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
+  .img {
+    scale: 0.8;
   }
 
   .main {
-    align-items: center;
-    ol {
-      text-align: center;
-    }
+    max-width: 300px;
+    gap: 0;
+  }
+
+  .intro {
+    gap: 18px;
   }
 
   .ctas {
     flex-direction: column;
+    max-width: 300px;
 
     a {
-      font-size: 14px;
       height: 40px;
-      padding: 0 16px;
     }
   }
 }

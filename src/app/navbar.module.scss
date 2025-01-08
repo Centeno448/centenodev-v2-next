@@ -35,3 +35,9 @@
       hue-rotate(344deg) brightness(105%) contrast(106%); // filter to white
   }
 }
+
+@media (max-width: 600px) {
+  .navbar {
+    width: 300px;
+  }
+}
