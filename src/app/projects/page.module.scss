@@ -1,13 +1,18 @@
 .projectContainer {
-  min-width: 55%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   column-gap: 12px;
   row-gap: 16px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 850px) {
   .projectContainer {
-    min-width: 30%;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .projectContainer {
+    grid-template-columns: 1fr;
   }
 }
