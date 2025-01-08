@@ -1,26 +1,16 @@
 :root {
-  --background: #ffffff;
+  --background: #fff;
   --foreground: #222241;
 
-  --gray-rgb: #000;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
   --button-primary-hover: #32325e;
-  --button-secondary-hover: #f2f2f2;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-
-    --gray-rgb: #fff;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+    --background: #222241;
+    --foreground: #fff;
 
     --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
   }
 }
 

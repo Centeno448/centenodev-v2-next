@@ -42,11 +42,6 @@
       background: var(--foreground);
       color: var(--background);
     }
-
-    &.secondary {
-      border-color: var(--gray-alpha-200);
-      min-width: 120px;
-    }
   }
 }
 
