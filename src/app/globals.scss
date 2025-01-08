@@ -2,7 +2,7 @@
   --background: #fff;
   --foreground: #222241;
 
-  --button-primary-hover: #32325e;
+  --primary-hover: #363666;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -10,7 +10,7 @@
     --background: #222241;
     --foreground: #fff;
 
-    --button-primary-hover: #ccc;
+    --primary-hover: #ccc;
   }
 }
 

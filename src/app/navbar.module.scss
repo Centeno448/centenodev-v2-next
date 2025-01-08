@@ -2,24 +2,36 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   gap: 32px;
-  width: 300px;
+  width: 400px;
+  color: var(--foreground);
 
   ul {
     display: flex;
     flex-direction: row;
+    padding-top: 5px;
     gap: 8px;
     list-style-type: none;
+
+    a {
+      font-size: 18px;
+
+      &:hover {
+        color: var(--primary-hover);
+      }
+    }
   }
 
-  a {
-    color: var(--foreground);
+  .navTitle {
+    font-weight: 700;
+    font-size: 24px;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   .socialLogo {
     filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7497%)
-      hue-rotate(344deg) brightness(105%) contrast(106%);
+      hue-rotate(344deg) brightness(105%) contrast(106%); // filter to white
   }
 }

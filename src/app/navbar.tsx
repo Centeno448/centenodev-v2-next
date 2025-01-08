@@ -5,9 +5,11 @@ import Link from "next/link";
 export default function NavBar() {
   return (
     <div className={styles.navbar}>
-      <Link href="/">CentenoDev</Link>
+      <Link className={styles.navTitle} href="/">
+        CentenoDev
+      </Link>
 
-      <ul className={styles.navLink}>
+      <ul>
         <li>
           <Link href="/projects">Projects</Link>
         </li>
@@ -21,8 +23,8 @@ export default function NavBar() {
               className={styles.socialLogo}
               src="/linked-in.svg"
               alt="LinkedIn logo"
-              width={20}
-              height={20}
+              width={23}
+              height={23}
             />
           </a>
         </li>
@@ -36,8 +38,8 @@ export default function NavBar() {
               className={styles.socialLogo}
               src="/github-mark.svg"
               alt="Github logo"
-              width={20}
-              height={20}
+              width={23}
+              height={23}
             />
           </a>
         </li>
