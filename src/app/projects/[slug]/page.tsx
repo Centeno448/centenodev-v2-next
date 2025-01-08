@@ -1,20 +1,12 @@
-import { ListProject, SpecificProject } from "@/app/types";
-import { fetchCMSContent, fetchProjectFromCMS } from "@/app/utils";
+import { fetchProjectFromCMS } from "@/app/utils";
 
 import styles from "./page.module.scss";
 
-export const dynamicParams = false;
+export const dynamic = "force-static";
+export const dynamicParams = true;
 
-export async function generateStaticParams(): Promise<{
-  slug: string;
-}> {
-  const projects = await fetchCMSContent("api/projects?sort=id").then((res) =>
-    res.json()
-  );
-
-  return projects.data.map((project: ListProject) => ({
-    slug: project.slug,
-  }));
+export async function generateStaticParams() {
+  return [];
 }
 
 export default async function Project({
@@ -23,8 +15,7 @@ export default async function Project({
   params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
-  const res = await fetchProjectFromCMS(slug).then((res) => res.json());
-  const project = res.data[0] as SpecificProject;
+  const project = await fetchProjectFromCMS(slug);
 
   return (
     <div className={styles.projectDetails}>

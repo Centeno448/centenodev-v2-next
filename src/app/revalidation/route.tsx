@@ -1,5 +1,5 @@
-import { revalidatePath } from "next/cache";
-import { badRequest, logError, logInfo, unAuthorized } from "../utils";
+import { revalidateTag } from "next/cache";
+import { badRequest, logError, unAuthorized } from "../utils";
 
 const REVALIDATION_TOKEN = process.env.CMS_REVALIDATION_TOKEN;
 
@@ -21,16 +21,20 @@ export async function POST(request: Request): Promise<Response> {
     return unAuthorized();
   }
 
-  const path = await request
+  const { path, tag } = await request
     .json()
-    .then((res: { path: string | null }) => res.path);
+    .then((res: { path: string | null; tag: string | null }) => res);
 
   if (!path) {
     return badRequest();
   }
 
-  logInfo(`Revalidating path ${path}`);
-  revalidatePath(path, "page");
+  // logInfo(`Revalidating path ${path}`);
+  // revalidatePath(path);
+
+  if (tag) {
+    revalidateTag(tag);
+  }
 
   return Response.json({ result: "OK" });
 }

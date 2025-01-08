@@ -1,16 +1,27 @@
 import chalk from "chalk";
+import { notFound } from "next/navigation";
+import { SpecificProject } from "./types";
 
 const API_KEY = process.env.CMS_API_KEY;
 const BASE_URL = process.env.CMS_BASE_URL;
 
-export async function fetchCMSContent(path: string)
+export async function fetchCMSContent(path: string, tags?: [string])
 {
-    return fetch(`${BASE_URL}/${path}`, {headers: {"Authorization": `Bearer ${API_KEY}`}});
+    return fetch(`${BASE_URL}/${path}`, {headers: {"Authorization": `Bearer ${API_KEY}`}, next: {tags}});
 }
 
-export async function fetchProjectFromCMS(slug: string)
+export async function fetchProjectFromCMS(slug: string) : Promise<SpecificProject>
 {
-    return fetchCMSContent(`api/projects?filters[slug][$eq]=${slug}&populate[0]=lessons&populate[1]=lessons.item&populate[2]=challenges&populate[3]=challenges.item`);
+    const url = `api/projects?filters[slug][$eq]=${slug}&populate[0]=lessons&populate[1]=lessons.item&populate[2]=challenges&populate[3]=challenges.item`;
+    const res = await fetchCMSContent(url, ["projects"]).then((res) => res.json());
+    const project = res.data[0] as SpecificProject;
+    
+    if(!project)
+    {
+        notFound();
+    }
+
+    return project;
 }
 
 export function logError(content: string) : void
