@@ -3,8 +3,7 @@
   flex-direction: column;
   gap: 12px;
   color: var(--foreground);
-  min-width: 500px;
-  max-width: 500px;
+  width: 800px;
 
   ul {
     margin-left: 25px;
@@ -26,9 +25,14 @@
   }
 }
 
+@media (max-width: 900px) {
+  .projectDetails {
+    width: 600px;
+  }
+}
+
 @media (max-width: 600px) {
   .projectDetails {
-    min-width: 300px;
-    max-width: 300px;
+    width: 300px;
   }
 }
