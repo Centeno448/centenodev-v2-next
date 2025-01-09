@@ -5,7 +5,7 @@ import { SpecificProject } from "./types";
 const API_KEY = process.env.CMS_API_KEY;
 const BASE_URL = process.env.CMS_BASE_URL;
 
-export async function fetchCMSContent(path: string, tags?: [string])
+export async function fetchCMSContent(path: string, tags?: string[])
 {
     return fetch(`${BASE_URL}/${path}`, {headers: {"Authorization": `Bearer ${API_KEY}`}, next: {tags}});
 }
@@ -13,7 +13,7 @@ export async function fetchCMSContent(path: string, tags?: [string])
 export async function fetchProjectFromCMS(slug: string) : Promise<SpecificProject>
 {
     const url = `api/projects?filters[slug][$eq]=${slug}&populate[0]=lessons&populate[1]=lessons.item&populate[2]=challenges&populate[3]=challenges.item`;
-    const res = await fetchCMSContent(url, ["projects"]).then((res) => res.json());
+    const res = await fetchCMSContent(url).then((res) => res.json());
     const project = res.data[0] as SpecificProject;
     
     if(!project)
@@ -33,7 +33,7 @@ export function logError(content: string) : void
 export function logInfo(content: string) : void
 {
     const date = new Date();
-    console.error(`[${date.toISOString()}] ${chalk.green("info")} - ${content}`);
+    console.log(`[${date.toISOString()}] ${chalk.green("info")} - ${content}`);
 }
 
 export function unAuthorized() : Response
