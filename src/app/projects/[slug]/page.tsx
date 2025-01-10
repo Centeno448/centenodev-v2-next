@@ -1,4 +1,6 @@
 import { fetchProjectFromCMS } from "@/app/utils";
+import Link from "next/link";
+import Image from "next/image";
 
 import styles from "./page.module.scss";
 
@@ -20,6 +22,16 @@ export default async function Project({
   return (
     <div className={styles.projectDetails}>
       <p className={styles.name}>{project.name}</p>
+      <Link className={styles.back} href="/projects">
+        <Image
+          className={styles.arrow}
+          alt="back arrow"
+          src="/back.svg"
+          width={15}
+          height={15}
+        />
+        <span>Back to projects</span>
+      </Link>
 
       <div>
         <p className={styles.sectionTitle}>Description</p>
