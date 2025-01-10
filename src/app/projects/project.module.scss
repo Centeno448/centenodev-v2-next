@@ -6,10 +6,8 @@
   border-radius: 12px;
   padding: 20px;
   color: var(--background);
-  min-width: 250px;
-  max-width: 250px;
-  min-height: 150px;
-  max-height: 150px;
+  width: 250px;
+  height: 200px;
 
   .name {
     font-weight: 800;
@@ -24,8 +22,7 @@
 
 @media (max-width: 400px) {
   .card {
-    min-width: 200px;
-    max-width: 200px;
+    width: 200px;
 
     .name {
       font-size: 20px;
