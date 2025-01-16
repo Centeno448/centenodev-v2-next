@@ -1,13 +1,13 @@
-import { revalidatePath, revalidateTag } from "next/cache";
-import { badRequest, logInfo, logError, unAuthorized } from "../utils";
+import { revalidatePath, revalidateTag } from 'next/cache';
+import { badRequest, logInfo, logError, unAuthorized } from '../utils';
 
 const REVALIDATION_TOKEN = process.env.CMS_REVALIDATION_TOKEN;
 
 export async function POST(request: Request): Promise<Response> {
-  const authHeader = request.headers.get("authorization");
+  const authHeader = request.headers.get('authorization');
 
   if (!REVALIDATION_TOKEN) {
-    logError("No revalidation token is configured!");
+    logError('No revalidation token is configured!');
     return unAuthorized();
   }
 
@@ -29,7 +29,7 @@ export async function POST(request: Request): Promise<Response> {
     return badRequest();
   }
 
-  logInfo(`Revalidating path ${path} ${tag ? `and tag ${tag}` : ""}`);
+  logInfo(`Revalidating path ${path} ${tag ? `and tag ${tag}` : ''}`);
 
   revalidatePath(path);
 
@@ -37,5 +37,5 @@ export async function POST(request: Request): Promise<Response> {
     revalidateTag(tag);
   }
 
-  return Response.json({ result: "OK" });
+  return Response.json({ result: 'OK' });
 }

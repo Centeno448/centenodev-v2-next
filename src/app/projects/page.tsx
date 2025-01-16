@@ -1,11 +1,11 @@
-import { fetchCMSContent } from "../utils";
-import { ListProject } from "../types";
-import Project from "./project";
-import styles from "./page.module.scss";
+import { fetchCMSContent } from '../utils';
+import { ListProject } from '../types';
+import Project from './project';
+import styles from './page.module.scss';
 
 export default async function Projects() {
-  const tags = ["projects"];
-  const data = await fetchCMSContent("api/projects?sort=createdAt", tags);
+  const tags = ['projects'];
+  const data = await fetchCMSContent('api/projects?sort=createdAt', tags);
   const projects = await data.json();
 
   return (

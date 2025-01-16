@@ -29,15 +29,21 @@
   }
 }
 
-.title {
-  color: var(--foreground);
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  a.primary:hover {
+    background: var(--primary-hover);
+    border-color: transparent;
+  }
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  justify-content: center;
-  align-items: center;
-  margin-top: 200px;
+@media (max-width: 600px) {
+  .ctas {
+    flex-direction: column;
+    max-width: 300px;
+
+    a {
+      height: 40px;
+    }
+  }
 }

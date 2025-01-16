@@ -1,6 +1,6 @@
-import styles from "./navbar.module.scss";
-import Image from "next/image";
-import Link from "next/link";
+import styles from './navbar.module.scss';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function NavBar() {
   return (
