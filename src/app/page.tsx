@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
+import ctaStyles from "./ctas.module.scss";
 import Link from "next/link";
 import { fetchCMSContent } from "./utils";
 
@@ -20,8 +21,8 @@ export default async function Home() {
         />
         <div className={styles.intro}>
           <p>{homepage.data.greeting}</p>
-          <div className={styles.ctas}>
-            <Link className={styles.primary} href="/projects">
+          <div className={ctaStyles.ctas}>
+            <Link className={ctaStyles.primary} href="/projects">
               {homepage.data.cta}
             </Link>
           </div>
