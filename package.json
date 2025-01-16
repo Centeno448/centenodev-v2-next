@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky",
-    "format": "lint-staged"
+    "prepare": "husky"
   },
   "dependencies": {
     "chalk": "^5.4.1",
