@@ -1,11 +1,11 @@
-import { fetchProjectFromCMS } from "@/app/utils";
-import Link from "next/link";
-import Image from "next/image";
+import { fetchProjectFromCMS } from '@/app/utils';
+import Link from 'next/link';
+import Image from 'next/image';
 
-import styles from "./page.module.scss";
-import ctaStyles from "../../ctas.module.scss";
+import styles from './page.module.scss';
+import ctaStyles from '../../ctas.module.scss';
 
-export const dynamic = "force-static";
+export const dynamic = 'force-static';
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
@@ -60,13 +60,17 @@ export default async function Project({
       {project.repos?.length && (
         <div className={`${ctaStyles.ctas}`}>
           {project.repos.map((repo) => (
-            <Link key={repo.id} className={ctaStyles.primary} target="_blank" href={repo.url}>
+            <Link
+              key={repo.id}
+              className={ctaStyles.primary}
+              target="_blank"
+              href={repo.url}
+            >
               {repo.linkText}
             </Link>
           ))}
         </div>
-        )
-      }
+      )}
     </div>
   );
 }

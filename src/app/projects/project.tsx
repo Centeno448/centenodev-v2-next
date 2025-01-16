@@ -1,5 +1,5 @@
-import styles from "./project.module.scss";
-import Link from "next/link";
+import styles from './project.module.scss';
+import Link from 'next/link';
 
 type ProjectProps = {
   name: string;
