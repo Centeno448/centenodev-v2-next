@@ -57,7 +57,7 @@ export default async function Project({
         </ul>
       </div>
 
-      {project.repos?.length && (
+      {project.repos && (
         <div className={`${ctaStyles.ctas}`}>
           {project.repos.map((repo) => (
             <Link
