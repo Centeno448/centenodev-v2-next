@@ -5,7 +5,7 @@ import styles from './page.module.scss';
 
 export default async function Projects() {
   const tags = ['projects'];
-  const data = await fetchCMSContent('api/projects?sort=createdAt', tags);
+  const data = await fetchCMSContent('api/projects?sort=updatedAt:desc', tags);
   const projects = await data.json();
 
   return (
