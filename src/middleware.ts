@@ -30,6 +30,7 @@ export function middleware(request: NextRequest) {
   // `/_next/` and `/api/` are ignored by the watcher, but we need to ignore files in `public` manually.
   if (
     [
+      '/revalidation',
       '/favicon.ico',
       '/img/me.jpg',
       '/back.svg',
