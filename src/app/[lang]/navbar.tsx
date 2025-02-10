@@ -1,14 +1,26 @@
+'use client';
 import styles from './navbar.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { Locale } from '@/i18n-config';
+import { usePathname, useRouter } from 'next/navigation';
 
-export default async function NavBar({
+export default function NavBar({
   locale,
 }: Readonly<{
   locale: Locale;
 }>) {
+  const router = useRouter();
+  const path = usePathname();
+
+  const localeChanged = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const segments = path.split('/');
+    segments[1] = event.target.value;
+    const newPath = segments.join('/');
+    router.push(newPath);
+  };
+
   return (
     <div className={styles.navbar}>
       <Link className={styles.navTitle} href={`/${locale}`}>
@@ -16,6 +28,18 @@ export default async function NavBar({
       </Link>
 
       <ul>
+        <li>
+          <select
+            onChange={localeChanged}
+            className={styles.localeSelect}
+            value={locale}
+            name="locale"
+            id="locale"
+          >
+            <option value="en">EN</option>
+            <option value="es">ES</option>
+          </select>
+        </li>
         <li>
           <Link href={`/${locale}/projects`}>
             {locale == 'en' ? 'Projects' : 'Proyectos'}

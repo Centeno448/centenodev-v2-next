@@ -27,6 +27,13 @@
     font-weight: 700;
     font-size: 24px;
   }
+
+  .localeSelect {
+    color: var(--foreground);
+    border: none;
+    background: var(--background);
+    font-size: 18px;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,5 +46,6 @@
 @media (max-width: 600px) {
   .navbar {
     width: 300px;
+    flex-direction: column;
   }
 }
