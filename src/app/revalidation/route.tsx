@@ -1,5 +1,5 @@
 import { revalidatePath, revalidateTag } from 'next/cache';
-import { badRequest, logInfo, logError, unAuthorized } from '../utils';
+import { badRequest, logInfo, logError, unAuthorized } from '@/utils';
 
 const REVALIDATION_TOKEN = process.env.CMS_REVALIDATION_TOKEN;
 

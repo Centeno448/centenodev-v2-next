@@ -13,9 +13,10 @@ export async function fetchCMSContent(path: string, tags?: string[]) {
 }
 
 export async function fetchProjectFromCMS(
-  slug: string
+  slug: string,
+  locale: string
 ): Promise<SpecificProject> {
-  const url = `api/projects?filters[slug][$eq]=${slug}&populate[0]=lessons&populate[1]=challenges&populate[2]=repos`;
+  const url = `api/projects?filters[slug][$eq]=${slug}&populate[0]=lessons&populate[1]=challenges&populate[2]=repos&locale=${locale}`;
   const res = await fetchCMSContent(url).then((res) => res.json());
   const project = res.data[0] as SpecificProject;
 

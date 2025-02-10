@@ -5,6 +5,7 @@ type ProjectProps = {
   name: string;
   summary: string;
   slug: string;
+  locale: string;
 };
 
 export default function Project(props: ProjectProps) {

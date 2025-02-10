@@ -2,16 +2,24 @@ import styles from './navbar.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function NavBar() {
+import { Locale } from '@/i18n-config';
+
+export default async function NavBar({
+  locale,
+}: Readonly<{
+  locale: Locale;
+}>) {
   return (
     <div className={styles.navbar}>
-      <Link className={styles.navTitle} href="/">
+      <Link className={styles.navTitle} href={`/${locale}`}>
         CentenoDev
       </Link>
 
       <ul>
         <li>
-          <Link href="/projects">Projects</Link>
+          <Link href={`${locale}/projects`}>
+            {locale == 'en' ? 'Projects' : 'Proyectos'}
+          </Link>
         </li>
         <li>
           <a
