@@ -3,17 +3,18 @@ import styles from './page.module.scss';
 import ctaStyles from './ctas.module.scss';
 import Link from 'next/link';
 import { fetchCMSContent } from '@/utils';
-import { i18n } from '@/i18n-config';
+import { i18n, Locale } from '@/i18n-config';
 
 export function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
 }
 
-export default async function IndexPage(props: {
-  params: Promise<{ lang: string }>;
-}) {
-  const locale = (await props.params).lang;
-
+export default async function IndexPage({
+  params,
+}: Readonly<{
+  params: Promise<{ lang: Locale }>;
+}>) {
+  const locale = (await params).lang;
   const data = await fetchCMSContent(`api/homepage?locale=${locale}`);
   const homepage = await data.json();
 

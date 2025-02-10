@@ -17,7 +17,7 @@ export default async function NavBar({
 
       <ul>
         <li>
-          <Link href={`${locale}/projects`}>
+          <Link href={`/${locale}/projects`}>
             {locale == 'en' ? 'Projects' : 'Proyectos'}
           </Link>
         </li>
