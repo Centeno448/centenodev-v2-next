@@ -3,7 +3,7 @@ import styles from './navbar.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Locale } from '@/i18n-config';
+import { Locale, i18n } from '@/i18n-config';
 import { usePathname, useRouter } from 'next/navigation';
 
 export default function NavBar({
@@ -36,8 +36,9 @@ export default function NavBar({
             name="locale"
             id="locale"
           >
-            <option value="en">EN</option>
-            <option value="es">ES</option>
+            {i18n.locales.map((locale) => {
+              return <option value={locale}>{locale.toUpperCase()}</option>;
+            })}
           </select>
         </li>
         <li>
