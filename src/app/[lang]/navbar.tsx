@@ -37,7 +37,11 @@ export default function NavBar({
             id="locale"
           >
             {i18n.locales.map((locale) => {
-              return <option value={locale}>{locale.toUpperCase()}</option>;
+              return (
+                <option key={locale} value={locale}>
+                  {locale.toUpperCase()}
+                </option>
+              );
             })}
           </select>
         </li>
