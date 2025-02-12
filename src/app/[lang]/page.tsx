@@ -2,10 +2,20 @@ import Image from 'next/image';
 import styles from './page.module.scss';
 import ctaStyles from './ctas.module.scss';
 import Link from 'next/link';
-import { fetchCMSContent } from './utils';
+import { fetchCMSContent } from '@/utils';
+import { i18n, Locale } from '@/i18n-config';
 
-export default async function Home() {
-  const data = await fetchCMSContent('api/homepage');
+export function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
+
+export default async function IndexPage({
+  params,
+}: Readonly<{
+  params: Promise<{ lang: Locale }>;
+}>) {
+  const locale = (await params).lang;
+  const data = await fetchCMSContent(`api/homepage?locale=${locale}`);
   const homepage = await data.json();
 
   return (
@@ -22,7 +32,7 @@ export default async function Home() {
         <div className={styles.intro}>
           <p>{homepage.data.greeting}</p>
           <div className={ctaStyles.ctas}>
-            <Link className={ctaStyles.primary} href="/projects">
+            <Link className={ctaStyles.primary} href={`${locale}/projects`}>
               {homepage.data.cta}
             </Link>
           </div>

@@ -1,4 +1,4 @@
-import { fetchProjectFromCMS } from '@/app/utils';
+import { fetchProjectFromCMS } from '@/utils';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -15,15 +15,17 @@ export async function generateStaticParams() {
 export default async function Project({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 }) {
-  const slug = (await params).slug;
-  const project = await fetchProjectFromCMS(slug);
+  const params_ = await params;
+  const slug = params_.slug;
+  const locale = params_.lang;
+  const project = await fetchProjectFromCMS(slug, locale);
 
   return (
     <div className={styles.projectDetails}>
       <p className={styles.name}>{project.name}</p>
-      <Link className={styles.back} href="/projects">
+      <Link className={styles.back} href={`/${locale}/projects`}>
         <Image
           className={styles.arrow}
           alt="back arrow"
@@ -31,16 +33,22 @@ export default async function Project({
           width={15}
           height={15}
         />
-        <span>Back to projects</span>
+        <span>
+          {locale == 'en' ? 'Back to projects' : 'Regresar a proyectos'}
+        </span>
       </Link>
 
       <div>
-        <p className={styles.sectionTitle}>Description</p>
+        <p className={styles.sectionTitle}>
+          {locale == 'en' ? 'Description' : 'Descripción'}
+        </p>
         <p className={styles.sectionContent}>{project.description}</p>
       </div>
 
       <div>
-        <p className={styles.sectionTitle}>Challenges</p>
+        <p className={styles.sectionTitle}>
+          {locale == 'en' ? 'Challenges' : 'Desafíos'}
+        </p>
         <ul className={styles.sectionContent}>
           {project.challenges.map((challenge) => (
             <li key={challenge.id}>{challenge.text}</li>
@@ -49,7 +57,9 @@ export default async function Project({
       </div>
 
       <div>
-        <p className={styles.sectionTitle}>Lessons</p>
+        <p className={styles.sectionTitle}>
+          {locale == 'en' ? 'Lessons' : 'Lecciones'}
+        </p>
         <ul className={styles.sectionContent}>
           {project.lessons.map((lesson) => (
             <li key={lesson.id}>{lesson.text}</li>
