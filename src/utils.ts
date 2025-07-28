@@ -9,7 +9,7 @@ const BASE_URL = process.env.CMS_BASE_URL;
 export async function fetchCMSContent(path: string, tags?: string[]) {
   return fetch(`${BASE_URL}/${path}`, {
     headers: { Authorization: `Bearer ${API_KEY}` },
-    next: { tags },
+    next: { tags, revalidate: false },
   });
 }
 
