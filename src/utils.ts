@@ -1,7 +1,6 @@
 import chalk from 'chalk';
 import { notFound } from 'next/navigation';
 import { SpecificProject } from './types';
-import { Locale } from './i18n-config';
 
 const API_KEY = process.env.CMS_API_KEY;
 const BASE_URL = process.env.CMS_BASE_URL;
@@ -46,6 +45,6 @@ export function badRequest(): Response {
   return new Response('Bad Request', { status: 400 });
 }
 
-export function getLocaleByPath(path: string): Locale {
-  return path.split('/')[1] as Locale;
+export function getLocaleByPath(path: string): string {
+  return path.split('/')[1];
 }

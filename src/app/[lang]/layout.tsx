@@ -4,7 +4,7 @@ import './globals.scss';
 import styles from './layout.module.scss';
 import NavBar from './navbar';
 
-import { i18n, type Locale } from '../../i18n-config';
+import { i18n } from '../../i18n-config';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }));
+  return i18n.validLocales.map((locale) => ({ lang: locale }));
 }
 
 export default async function RootLayout({
@@ -25,7 +25,7 @@ export default async function RootLayout({
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ lang: Locale }>;
+  params: Promise<{ lang: string }>;
 }>) {
   const locale = (await params).lang;
   return (

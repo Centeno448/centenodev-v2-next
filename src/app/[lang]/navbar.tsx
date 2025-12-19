@@ -3,13 +3,13 @@ import styles from './navbar.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Locale, i18n } from '@/i18n-config';
+import { i18n } from '@/i18n-config';
 import { usePathname, useRouter } from 'next/navigation';
 
 export default function NavBar({
   locale,
 }: Readonly<{
-  locale: Locale;
+  locale: string;
 }>) {
   const router = useRouter();
   const path = usePathname();
@@ -36,7 +36,7 @@ export default function NavBar({
             name="locale"
             id="locale"
           >
-            {i18n.locales.map((locale) => {
+            {i18n.validLocales.map((locale) => {
               return (
                 <option key={locale} value={locale}>
                   {locale.toUpperCase()}
